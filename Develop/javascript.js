@@ -20,15 +20,14 @@ var times = {
 
 
 var currentHour = moment().format('h')
-console.log(currentHour)
+
 var timeEl = document.getElementsByClassName('input-group-text') 
 
-//$.each(times,function colorSwitcher(key,value) {
-   // console.log(key)
-   // if (currentHour > value) {
-       // $('input-group-text').classList.add('future');
-//    }
-//}); 
+$.each(times,function colorSwitcher(key,value) {
+   if (currentHour > value) {
+        $('input-group-text').classList.add('future');
+    }
+}); 
 var inputs = {
     input9: document.querySelector('#ninetxt').value.trim(),
     input10: document.querySelector('#tentxt').value.trim(),
@@ -45,7 +44,7 @@ function saveData(){
     localStorage.setItem('planner', JSON.stringify(inputs));
 }
 
-document.getElementById('button-addon2').addEventListener('click',function(event) {
+document.getElementsByTagName('BUTTON').addEventListener('click',function(event) {
     event.preventDefault();
     saveData();
 })
